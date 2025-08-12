@@ -75,7 +75,10 @@ struct UserBmiCalculationView: View {
                 .padding(.horizontal)
                 .padding(.horizontal, 10)
                 
-                CurrentUserWeightHorizontalWheelPicker(config: currentUserWeightHorizontalWheelPickerConfig, value: $currentUserWeightValue).padding(.horizontal, 25).frame(height: 55).sensoryFeedback(.increase, trigger: currentUserWeightValue)
+                CurrentUserWeightHorizontalWheelPicker(config: currentUserWeightHorizontalWheelPickerConfig, value: $currentUserWeightValue)
+                    .padding(.horizontal, 25)
+                    .frame(height: 55)
+                    .sensoryFeedback(.increase, trigger: currentUserWeightValue)
                 
                 HStack(alignment: .bottom,  content: {
                     Text("Рост:")
@@ -98,6 +101,7 @@ struct UserBmiCalculationView: View {
                 CurrentUserHeightHorizontalWheelPicker(config: currentUserHeightHorizontalWheelPickerConfig, value: $currentUserHeightValue)
                     .padding(.horizontal, 25)
                     .frame(height: 55)
+                    .sensoryFeedback(.increase, trigger: currentUserHeightValue)
                 
                 HStack {
                     Button(action:
