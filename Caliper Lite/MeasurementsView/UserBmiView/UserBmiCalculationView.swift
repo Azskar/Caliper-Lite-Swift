@@ -9,12 +9,13 @@ import SwiftUI
 
 struct UserBmiCalculationView: View {
     
-    @State private var userBmiResultLevel: String = "Нормальный"
-    @State private var currentUserWeightValue: CGFloat = 40
-    @State private var currentUserHeightValue: CGFloat = 50
-    @State private var currentUserBmi: Float = 19.02
+    @State private var userBmiResultLevel: String = ""
+    @State private var currentUserWeightValue: CGFloat = 20
+    @State private var currentUserHeightValue: CGFloat = 120
+    @State private var currentUserBmi: Float = 13.89
     
     @State private var calculationButtonTapped: Bool = false
+    @State private var iscurrentUserBmiShown: Bool = false
     
     var kilogramsText = Text("кг").font(.title2)
         .fontWeight(.semibold)
@@ -34,6 +35,7 @@ struct UserBmiCalculationView: View {
     
     func calculateBmi() {
         calculationButtonTapped.toggle()
+        iscurrentUserBmiShown = true
         currentUserBmi = Float(currentUserWeightValue)/Float(Float(currentUserHeightValue)/100 * Float(currentUserHeightValue)/100)
         
         switch currentUserBmi {
@@ -129,7 +131,7 @@ struct UserBmiCalculationView: View {
                 Text("\(String(format: "%.2f", currentUserBmi))")
                     .font(.system(.title2, design: .rounded))
                     .bold()
-                    .foregroundColor(.colorCalculatedBmiResultText)
+                    .foregroundColor(iscurrentUserBmiShown ? .colorCalculatedBmiResultText : .clear)
             }
             .padding()
             .padding(.horizontal, 20)
@@ -150,7 +152,6 @@ struct UserBmiCalculationView: View {
                                        startPoint: .topLeading,
                                        endPoint: .bottomTrailing))
             .cornerRadius(30)
-                        
     }
 }
 

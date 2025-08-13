@@ -9,8 +9,10 @@ import SwiftUI
 
 struct UserSubcutaneousFatPercentageCalculationView: View {
     
-    @State private var userGender: String = "Мужской"
+    @State private var userGender: String = ""
     @State private var currentUserAge: Int = 18
+    @StateObject private var userProfile = UserProfile()
+    let genders = ["Мужской", "Женский"]
     /*init() {
         self.userGender = UserDefaults.standard.string(forKey: "UserGender") ?? "Не выбран"
     }*/
@@ -22,6 +24,7 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
     @State private var currentUserSubcutaneousFatPercent: String = ""
     @State private var calculationButtonTapped: Bool = false
     @State private var isSheetPresented = false
+    @State private var isProfileDataSheetPresented = false
     
     var lowerAgeLimits: [Int] = [18, 21, 26, 31, 36, 41, 46, 51, 56]
     var upperAgeLimits: [Int] = [20, 25, 30, 35, 40, 45, 50, 55, 120]
@@ -99,6 +102,18 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
     
     func calculateUserSubcutaneousFatPercentage() {
         calculationButtonTapped.toggle()
+        guard UserDefaults.standard.object(forKey: "UserGender") is String,
+              UserDefaults.standard.object(forKey: "UserBirthDate") is Date else {
+            isProfileDataSheetPresented = true
+            return
+        }
+        
+        userGender = UserDefaults.standard.string(forKey: "UserGender") ?? "Мужской"
+        if let birthDate = UserDefaults.standard.object(forKey: "UserBirthDate") as? Date {
+            currentUserAge = birthDate.calculateAge()
+        } else {
+            currentUserAge = 18
+        }
         
         switch userGender {
         case "Женский":
@@ -106,10 +121,10 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
         default:
             userGenderIndex = 0
         }
-        
+            
         currentUserAgeIndex = 0
         currentUserSkinFoldThicknessIndex = 0
-        
+            
         thinBodyImage = ImageResource(name: "body_thin_inactive", bundle: .main)
         thinIdealBodyImage = ImageResource(name: "body_thin-ideal_inactive", bundle: .main)
         idealBodyImage = ImageResource(name: "body_ideal_inactive", bundle: .main)
@@ -117,7 +132,7 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
         middleBodyImage = ImageResource(name: "body_middle_inactive", bundle: .main)
         overfatBodyImage = ImageResource(name: "body_overfat_inactive", bundle: .main)
         obeseBodyImage = ImageResource(name: "body_obese_inactive", bundle: .main)
-        
+            
         while true {
             if Int(currentUserAge) < lowerAgeLimits[currentUserAgeIndex] {
                 // Возраст меньше нижней границы - прерываем цикл
@@ -134,22 +149,20 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
                 break
             }
         }
-            
+                
         while !(Int(currentUserSkinFoldThickness) >= lowerSkinFoldThicknessLimits[currentUserSkinFoldThicknessIndex] && Int(currentUserSkinFoldThickness) <= upperSkinFoldThicknessLimits[currentUserSkinFoldThicknessIndex]) {
             currentUserSkinFoldThicknessIndex += 1
         }
-            
-        // Проверка границ перед доступом к массиву
-        guard
-            userGenderIndex + 2 < caliperometryTable.count,
+                
+            // Проверка границ перед доступом к массиву
+        guard userGenderIndex + 2 < caliperometryTable.count,
             currentUserAgeIndex < caliperometryTable[userGenderIndex + 2].count,
             currentUserSkinFoldThicknessIndex < caliperometryTable[userGenderIndex + 2][currentUserAgeIndex].count
         else {
             currentUserSubcutaneousFatLevel = "Ошибка: выход за пределы массива"
             return
         }
-            
-        // Обработка значений
+        
         switch caliperometryTable[userGenderIndex + 2][currentUserAgeIndex][currentUserSkinFoldThicknessIndex] {
         case "1":
             currentUserSubcutaneousFatLevel = "Крайне низкий"
@@ -177,7 +190,6 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
         }
             
         currentUserSubcutaneousFatPercent = "\(caliperometryTable[userGenderIndex][currentUserAgeIndex][currentUserSkinFoldThicknessIndex])%"
-        
     }
     
     //#if os(iOS)
@@ -244,6 +256,9 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
                         .clipShape(Capsule())
                 }.padding(.bottom)
                     .sensoryFeedback(.increase, trigger: calculationButtonTapped)
+                    .sheet(isPresented: $isProfileDataSheetPresented) {
+                        UserProfileView()
+                    }
                 
                 HStack {
                     Image(thinBodyImage)
@@ -314,21 +329,8 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
         .padding(10)
         .background(subcutaneousFatPercentageMeasurementViewGradient)
         .cornerRadius(30)
-        .onAppear {
-            if let birthDate = UserDefaults.standard.object(forKey: "UserBirthDate") as? Date {
-                currentUserAge = birthDate.calculateAge()
-            } else {
-                currentUserAge = 18
-            }
-
-            userGender = UserDefaults.standard.string(forKey: "UserGender") ?? "Мужской"
-        }//VSTack
     }//body
 }//View
-
-
-
-
 
 #Preview {
     UserSubcutaneousFatPercentageCalculationView()

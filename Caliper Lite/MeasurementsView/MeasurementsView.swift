@@ -27,7 +27,7 @@ struct MeasurementsView: View {
             .navigationTitle("Измерения")
         }//NavigationStack
     }//Body
-}//ContentView
+}//MeasurementsView
 
 #Preview {
     MeasurementsView()
