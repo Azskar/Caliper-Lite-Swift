@@ -16,7 +16,7 @@ struct CurrentUserHeightHorizontalWheelPicker: View {
             let horizontalPadding = size.width / 2
             ScrollView(.horizontal) {
                 HStack(spacing: config.spacing) {
-                    ForEach(50...280, id: \.self) { index in
+                    ForEach(120...280, id: \.self) { index in
                         let remainder = index % config.steps
                         Divider()
                             .frame(width: 0,
