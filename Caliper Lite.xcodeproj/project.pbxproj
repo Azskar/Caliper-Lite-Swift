@@ -29,9 +29,30 @@
 		898843CB2E2CCABE001D9D00 /* Caliper LiteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Caliper LiteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		89F633912E51074D0099112D /* Exceptions for "Caliper Lite" folder in "Caliper LiteTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Localizable.xcstrings,
+			);
+			target = 898843C02E2CCABE001D9D00 /* Caliper LiteTests */;
+		};
+		89F633922E51074D0099112D /* Exceptions for "Caliper Lite" folder in "Caliper LiteUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Localizable.xcstrings,
+			);
+			target = 898843CA2E2CCABE001D9D00 /* Caliper LiteUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		898843B62E2CCABB001D9D00 /* Caliper Lite */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				89F633912E51074D0099112D /* Exceptions for "Caliper Lite" folder in "Caliper LiteTests" target */,
+				89F633922E51074D0099112D /* Exceptions for "Caliper Lite" folder in "Caliper LiteUITests" target */,
+			);
 			path = "Caliper Lite";
 			sourceTree = "<group>";
 		};
@@ -192,6 +213,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				fr,
 			);
 			mainGroup = 898843AB2E2CCABB001D9D00;
 			minimizedProjectReferenceProxies = 1;
@@ -329,6 +352,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -386,6 +410,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
