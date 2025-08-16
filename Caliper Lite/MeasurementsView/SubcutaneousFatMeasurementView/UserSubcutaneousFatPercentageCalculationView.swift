@@ -9,10 +9,14 @@ import SwiftUI
 
 struct UserSubcutaneousFatPercentageCalculationView: View {
     
-    @State private var userGender: String = ""
+    @Environment(\.locale) private var locale
+    
+    @State private var userGender: String = String(localized: "User gender")
+    private var millimetersText = String(localized: "Mm")
+    @State private var currentUserSubcutaneousFatLevel: String = String(localized: "Current user's body fat mass percentage level")
+    @State private var currentUserSubcutaneousFatPercent: String = ""
     @State private var currentUserAge: Int = 18
     @StateObject private var userProfile = UserProfile()
-    let genders = ["Мужской", "Женский"]
     /*init() {
         self.userGender = UserDefaults.standard.string(forKey: "UserGender") ?? "Не выбран"
     }*/
@@ -20,11 +24,12 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
     @State private var currentUserSkinFoldThickness: Int = 2
     @State var currentUserAgeIndex: Int = 0
     @State var currentUserSkinFoldThicknessIndex: Int = 0
-    @State private var currentUserSubcutaneousFatLevel: String = ""
-    @State private var currentUserSubcutaneousFatPercent: String = ""
+    
+    
     @State private var calculationButtonTapped: Bool = false
     @State private var isSheetPresented = false
     @State private var isProfileDataSheetPresented = false
+    @State private var isCurrentUserSubcutaneousFatLevelShown: Bool = false
     
     var lowerAgeLimits: [Int] = [18, 21, 26, 31, 36, 41, 46, 51, 56]
     var upperAgeLimits: [Int] = [20, 25, 30, 35, 40, 45, 50, 55, 120]
@@ -82,12 +87,6 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
             ]
         ]
     
-    private var millimetersText = Text("мм")
-        .font(.system(.title2, design: .rounded))
-        .fontWeight(.semibold)
-        .textScale(.secondary)
-        .foregroundStyle(.white)
-    
     let subcutaneousFatPercentageMeasurementViewGradient = LinearGradient(gradient: Gradient(colors: [.colorCaliperometryMeasurementViewGreenLight, .colorCaliperometryMeasurementViewGreenBase]), startPoint: .topLeading, endPoint: .bottomTrailing)
     let subcutaneousFatPercentageCalculationButtonViewGradient = LinearGradient(gradient: Gradient(colors: [.white.opacity(0.25),.white.opacity(0.15)]), startPoint: .topLeading, endPoint: .bottomTrailing)
     let subcutaneousFatPercentageCalculatedResultViewGradient = LinearGradient(gradient: Gradient(colors: [.white.opacity(0.5),.white.opacity(0.4)]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -102,13 +101,14 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
     
     func calculateUserSubcutaneousFatPercentage() {
         calculationButtonTapped.toggle()
+        
         guard UserDefaults.standard.object(forKey: "UserGender") is String,
               UserDefaults.standard.object(forKey: "UserBirthDate") is Date else {
             isProfileDataSheetPresented = true
             return
         }
         
-        userGender = UserDefaults.standard.string(forKey: "UserGender") ?? "Мужской"
+        userGender = UserDefaults.standard.string(forKey: "UserGender") ?? "Male"
         if let birthDate = UserDefaults.standard.object(forKey: "UserBirthDate") as? Date {
             currentUserAge = birthDate.calculateAge()
         } else {
@@ -116,7 +116,7 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
         }
         
         switch userGender {
-        case "Женский":
+        case "Female":
             userGenderIndex = 1
         default:
             userGenderIndex = 0
@@ -159,44 +159,46 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
             currentUserAgeIndex < caliperometryTable[userGenderIndex + 2].count,
             currentUserSkinFoldThicknessIndex < caliperometryTable[userGenderIndex + 2][currentUserAgeIndex].count
         else {
-            currentUserSubcutaneousFatLevel = "Ошибка: выход за пределы массива"
+            /*currentUserSubcutaneousFatLevel = "Ошибка: выход за пределы массива"*/
             return
         }
         
         switch caliperometryTable[userGenderIndex + 2][currentUserAgeIndex][currentUserSkinFoldThicknessIndex] {
         case "1":
-            currentUserSubcutaneousFatLevel = "Крайне низкий"
+            currentUserSubcutaneousFatLevel = String(localized: "Lean")
             thinBodyImage = ImageResource(name: "body_thin_active", bundle: .main)
         case "2":
-            currentUserSubcutaneousFatLevel = "Близкий к спортивному"
+            currentUserSubcutaneousFatLevel = String(localized: "Close to ideal")
             thinIdealBodyImage = ImageResource(name: "body_thin-ideal_active", bundle: .main)
         case "3":
-            currentUserSubcutaneousFatLevel = "Спортивный"
+            currentUserSubcutaneousFatLevel = String(localized: "Ideal")
             idealBodyImage = ImageResource(name: "body_ideal_active", bundle: .main)
         case "4":
-            currentUserSubcutaneousFatLevel = "Близкий к спортивному"
+            currentUserSubcutaneousFatLevel = String(localized: "Close to ideal")
             idealMiddleBodyImage = ImageResource(name: "body_ideal-middle_active", bundle: .main)
         case "5":
-            currentUserSubcutaneousFatLevel = "Близкий к избыточному"
+            currentUserSubcutaneousFatLevel = String(localized: "Close to average")
             middleBodyImage = ImageResource(name: "body_middle_active", bundle: .main)
         case "6":
-            currentUserSubcutaneousFatLevel = "Избыточный"
+            currentUserSubcutaneousFatLevel = String(localized: "Average")
             overfatBodyImage = ImageResource(name: "body_overfat_active", bundle: .main)
         case "7":
-            currentUserSubcutaneousFatLevel = "Крайне избыточный"
+            currentUserSubcutaneousFatLevel = String(localized: "Above average")
             obeseBodyImage = ImageResource(name: "body_obese_active", bundle: .main)
         default:
             print("Значение не распознано")
         }
             
-        currentUserSubcutaneousFatPercent = "\(caliperometryTable[userGenderIndex][currentUserAgeIndex][currentUserSkinFoldThicknessIndex])%"
+        currentUserSubcutaneousFatPercent = "\(caliperometryTable[userGenderIndex][currentUserAgeIndex][currentUserSkinFoldThicknessIndex]) %"
+        
+        isCurrentUserSubcutaneousFatLevelShown = true
     }
     
     //#if os(iOS)
     var body: some View {
         VStack {
             VStack {
-                Text("Процент массы жира в организме")
+                Text("Body fat mass percentage")
                     .font(.system(.title, design: .rounded))
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -218,45 +220,55 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
                             .rotationEffect(.degrees(-20))
                             .padding(.bottom, 30)
                     }
-                    Button(action: {
-                            isSheetPresented.toggle()
-                    }, label: {
-                        HStack(alignment: .bottom, spacing: 0) {
-                            Text("\(self.currentUserSkinFoldThickness)\(millimetersText)")
-                                .padding(.top, 60)
-                                .font(.system(.title2, design: .rounded))
-                                .bold()
-                                .underline()
-                                .foregroundColor(.white)
-                            }
-                        })
-                        .popover(isPresented: $isSheetPresented) {
-                            VStack {
-                                Text("Введите толщину кожной сладки")
-                                    .padding(.top, 20)
-                                Picker("Толщина кожной складки", selection: $currentUserSkinFoldThickness) {
-                                    ForEach((2..<27), id: \.self) {
-                                        Text("\($0)")
-                                    }
+                    
+                        Button(action: {
+                                isSheetPresented.toggle()
+                        }, label: {
+                            VStack(spacing: -3) {
+                                HStack(alignment: .bottom) {
+                                        Text("\(self.currentUserSkinFoldThickness)")
+                                            .padding(.top, 60)
+                                            .font(.system(.title2, design: .rounded))
+                                            .bold()
+                                            .foregroundColor(.white)
+                                        Text(millimetersText)
+                                            .padding(.top, 60)
+                                            .font(.system(.title2, design: .rounded))
+                                            .fontWeight(.semibold)
+                                            .textScale(.secondary)
+                                            .foregroundStyle(.white)
+                                        }
+                                Capsule().frame(width: locale.language.languageCode?.identifier == "ru" ? 50 : 55, height: 2).foregroundStyle(.white)
                                 }
-                                .pickerStyle(.wheel)
+                            })
+                            .popover(isPresented: $isSheetPresented) {
+                                VStack {
+                                    Text("Select skinfold thickness")
+                                        .padding(.top, 20)
+                                    Picker("Skinfold thickness", selection: $currentUserSkinFoldThickness) {
+                                        ForEach((2..<27), id: \.self) {
+                                            Text("\($0)")
+                                        }
+                                    }
+                                    .pickerStyle(.wheel)
+                                }
+                                .presentationCompactAdaptation(.popover)
                             }
-                            .presentationCompactAdaptation(.popover)
-                         }
                 }
                 .frame(maxHeight: 150)
                 
                 Button(action: calculateUserSubcutaneousFatPercentage) {
-                    Text("=")
+                    Text("Equals sign")
                         .font(.system(.largeTitle, design: .rounded))
                         .bold()
                         .foregroundColor(.white)
                         .frame(width: 150, height: 50)
                         .background(subcutaneousFatPercentageCalculationButtonViewGradient)
                         .clipShape(Capsule())
-                }.padding(.bottom)
-                    .sensoryFeedback(.increase, trigger: calculationButtonTapped)
-                    .sheet(isPresented: $isProfileDataSheetPresented) {
+                }
+                .padding(.bottom)
+                .sensoryFeedback(.increase, trigger: calculationButtonTapped)
+                .sheet(isPresented: $isProfileDataSheetPresented) {
                         UserProfileView()
                     }
                 
@@ -302,12 +314,12 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
             }
             
             HStack {
-                Text("\(currentUserSubcutaneousFatLevel)")
+                Text("\(isCurrentUserSubcutaneousFatLevelShown ? currentUserSubcutaneousFatLevel : "")")
                     .font(.system(.title2, design: .rounded))
                     .bold()
                     .foregroundColor(.colorCalculatedSubcutaneousFatResultText)
                 Spacer()
-                Text("\(currentUserSubcutaneousFatPercent)")
+                Text("\(isCurrentUserSubcutaneousFatLevelShown ? currentUserSubcutaneousFatPercent : "")")
                     .font(.system(.title2, design: .rounded))
                     .bold()
                     .foregroundColor(.colorCalculatedSubcutaneousFatResultText)

@@ -23,11 +23,11 @@ struct ContentView: View {
         TabView {
             MeasurementsView()
                 .tabItem {
-                    Label("Измерения", systemImage: "list.bullet.clipboard.fill")
+                    Label("Measurements", systemImage: "list.bullet.clipboard.fill")
                 }
             UserProfileView()
                 .tabItem {
-                    Label("Профиль", systemImage: "person")
+                    Label("Profile", systemImage: "person")
                 }
         }
     }

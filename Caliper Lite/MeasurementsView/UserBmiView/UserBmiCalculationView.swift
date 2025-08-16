@@ -9,22 +9,18 @@ import SwiftUI
 
 struct UserBmiCalculationView: View {
     
-    @State private var userBmiResultLevel: String = ""
-    @State private var currentUserWeightValue: CGFloat = 20
+    @State private var userBmiResultLevel = String(localized: "User's bmi result level")
+    var kilogramsText = String(localized: "Kg")
+    var centimetersText = String(localized: "Cm")
+    
+    @State private var currentUserMassValue: CGFloat = 20
     @State private var currentUserHeightValue: CGFloat = 120
     @State private var currentUserBmi: Float = 13.89
     
     @State private var calculationButtonTapped: Bool = false
-    @State private var iscurrentUserBmiShown: Bool = false
+    @State private var isCurrentUserBmiResultShown: Bool = false
     
-    var kilogramsText = Text("кг").font(.title2)
-        .fontWeight(.semibold)
-        .textScale(.secondary)
-        .foregroundStyle(.white)
-    var centimetersText = Text("см").font(.title2)
-        .fontWeight(.semibold)
-        .textScale(.secondary)
-        .foregroundStyle(.white)
+    
     
     let bmiCalculationButtonViewGradient = LinearGradient(gradient: Gradient(colors: [.white.opacity(0.25),.white.opacity(0.15)]), startPoint: .topLeading, endPoint: .bottomTrailing)
     let bmiCalculatedResultViewGradient = LinearGradient(gradient: Gradient(colors: [.white.opacity(0.5),.white.opacity(0.4)]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -35,25 +31,27 @@ struct UserBmiCalculationView: View {
     
     func calculateBmi() {
         calculationButtonTapped.toggle()
-        iscurrentUserBmiShown = true
-        currentUserBmi = Float(currentUserWeightValue)/Float(Float(currentUserHeightValue)/100 * Float(currentUserHeightValue)/100)
+        
+        currentUserBmi = Float(currentUserMassValue)/Float(Float(currentUserHeightValue)/100 * Float(currentUserHeightValue)/100)
         
         switch currentUserBmi {
             case ..<18.5:
-            userBmiResultLevel = "Низкий"
+            userBmiResultLevel = String(localized: "Low")
         case 18.5..<25:
-            userBmiResultLevel = "Нормальный"
+            userBmiResultLevel = String(localized: "Normal")
         case 25..<30:
-            userBmiResultLevel = "Избыточный"
+            userBmiResultLevel = String(localized: "Average")
         default:
-            userBmiResultLevel = "Крайне избыточный"
+            userBmiResultLevel = String(localized: "Above average")
         }
+        
+        isCurrentUserBmiResultShown = true
     }
     
     var body: some View {
         VStack {
             VStack {
-                Text("Индекс массы тела")
+                Text("Body mass index")
                     .font(.system(.title, design: .rounded))
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -61,38 +59,52 @@ struct UserBmiCalculationView: View {
                     .foregroundColor(.white)
                 
                 HStack(alignment: .bottom, content: {
-                    Text("Вес:")
+                    Text("Mass:")
                         .font(.system(.title3, design: .rounded))
                         .bold()
                         .foregroundStyle(.white)
-                    Text("\(String(format: "%.0f", currentUserWeightValue))\(kilogramsText)")
+                    Text(String(format: "%.0f", currentUserMassValue))
                         .font(.system(.title2, design: .rounded))
                         .bold()
-                        .contentTransition(.numericText(value: currentUserWeightValue))
-                        .animation(.snappy, value: currentUserWeightValue)
                         .foregroundStyle(.white)
+                        .contentTransition(.numericText(value: currentUserMassValue))
+                        .animation(.snappy, value: currentUserMassValue)
+                    Text(kilogramsText)
+                        .font(.system(.title2, design: .rounded))
+                        .fontWeight(.semibold)
+                        .textScale(.secondary)
+                        .foregroundStyle(.white)
+                        .contentTransition(.numericText(value: currentUserMassValue))
+                        .animation(.snappy, value: currentUserMassValue)
                     Spacer()
                 })
                 .padding(.top)
                 .padding(.horizontal)
                 .padding(.horizontal, 10)
                 
-                CurrentUserWeightHorizontalWheelPicker(config: currentUserWeightHorizontalWheelPickerConfig, value: $currentUserWeightValue)
+                CurrentUserWeightHorizontalWheelPicker(config: currentUserWeightHorizontalWheelPickerConfig, value: $currentUserMassValue)
                     .padding(.horizontal, 25)
                     .frame(height: 55)
-                    .sensoryFeedback(.increase, trigger: currentUserWeightValue)
+                    .sensoryFeedback(.increase, trigger: currentUserMassValue)
                 
                 HStack(alignment: .bottom,  content: {
-                    Text("Рост:")
+                    Text("Height:")
                         .font(.system(.title3, design: .rounded))
                         .bold()
                         .foregroundStyle(.white)
-                    Text("\(String(format: "%.0f", currentUserHeightValue))\(centimetersText)")
+                    Text(String(format: "%.0f", currentUserHeightValue))
                         .font(.system(.title2, design: .rounded))
                         .bold()
+                        .foregroundStyle(.white)
                         .contentTransition(.numericText(value: currentUserHeightValue))
                         .animation(.snappy, value: currentUserHeightValue)
+                    Text(centimetersText)
+                        .font(.system(.title2, design: .rounded))
+                        .fontWeight(.semibold)
+                        .textScale(.secondary)
                         .foregroundStyle(.white)
+                        .contentTransition(.numericText(value: currentUserHeightValue))
+                        .animation(.snappy, value: currentUserHeightValue)
                     Spacer()
                 })
                 .padding(.top)
@@ -108,7 +120,7 @@ struct UserBmiCalculationView: View {
                 HStack {
                     Button(action:
                             calculateBmi) {
-                        Text("=")
+                        Text("Equals sign")
                             .font(.system(.largeTitle, design: .rounded))
                             .bold()
                             .foregroundColor(.white)
@@ -123,15 +135,15 @@ struct UserBmiCalculationView: View {
             }
             
             HStack {
-                Text("\(userBmiResultLevel)")
+                Text("\(isCurrentUserBmiResultShown ? userBmiResultLevel : "")")
                     .font(.system(.title2, design: .rounded))
                     .bold()
                     .foregroundColor(.colorCalculatedBmiResultText)
                 Spacer()
-                Text("\(String(format: "%.2f", currentUserBmi))")
+                Text("\(isCurrentUserBmiResultShown ? String(format: "%.2f", currentUserBmi) : "")")
                     .font(.system(.title2, design: .rounded))
                     .bold()
-                    .foregroundColor(iscurrentUserBmiShown ? .colorCalculatedBmiResultText : .clear)
+                    .foregroundColor(.colorCalculatedBmiResultText)
             }
             .padding()
             .padding(.horizontal, 20)
