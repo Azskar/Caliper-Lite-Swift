@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserBmiCalculationView: View {
     
-    @State private var userBmiResultLevel = String(localized: "User's bmi result level")
+    @State private var userBmiResultLevel = String(localized: "User's BMI result level")
     var kilogramsText = String(localized: "Kg")
     var centimetersText = String(localized: "Cm")
     

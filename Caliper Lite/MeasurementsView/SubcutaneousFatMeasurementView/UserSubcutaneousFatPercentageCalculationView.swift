@@ -238,7 +238,7 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
                                             .textScale(.secondary)
                                             .foregroundStyle(.white)
                                         }
-                                Capsule().frame(width: locale.language.languageCode?.identifier == "ru" ? 50 : 55, height: 2).foregroundStyle(.white)
+                                Capsule().frame(width: currentUserSkinFoldThickness >= 20 ? (locale.language.languageCode?.identifier == "ru" ? 65: 70) : (currentUserSkinFoldThickness >= 10 ? (locale.language.languageCode?.identifier == "ru" ? 60: 65) : (locale.language.languageCode?.identifier == "ru" ? 50: 55)), height: 2).foregroundStyle(.white)
                                 }
                             })
                             .popover(isPresented: $isSheetPresented) {
