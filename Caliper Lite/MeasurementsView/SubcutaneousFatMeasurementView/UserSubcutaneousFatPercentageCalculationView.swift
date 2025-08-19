@@ -29,7 +29,8 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
     @State private var calculationButtonTapped: Bool = false
     @State private var isSheetPresented = false
     @State private var isProfileDataSheetPresented = false
-    @State private var isCurrentUserSubcutaneousFatLevelShown: Bool = false
+    @State private var isCurrentUserSubcutaneousFatLevelPresented: Bool = false
+    @State private var isInstructionPresented: Bool = false
     
     var lowerAgeLimits: [Int] = [18, 21, 26, 31, 36, 41, 46, 51, 56]
     var upperAgeLimits: [Int] = [20, 25, 30, 35, 40, 45, 50, 55, 120]
@@ -191,7 +192,7 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
             
         currentUserSubcutaneousFatPercent = "\(caliperometryTable[userGenderIndex][currentUserAgeIndex][currentUserSkinFoldThicknessIndex]) %"
         
-        isCurrentUserSubcutaneousFatLevelShown = true
+        isCurrentUserSubcutaneousFatLevelPresented = true
     }
     
     //#if os(iOS)
@@ -214,11 +215,35 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
                             .aspectRatio(contentMode: .fit)
                             .rotationEffect(.degrees(20))
                             .padding(.bottom, 30)
-                        Image("CaliperLegWhiteRight")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .rotationEffect(.degrees(-20))
-                            .padding(.bottom, 30)
+                        ZStack {
+                            Image("CaliperLegWhiteRight")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .rotationEffect(.degrees(-20))
+                                .padding(.bottom, 30)
+                            HStack {
+                                Button(action: {
+                                            isInstructionPresented.toggle()
+                                    }, label: {
+                                        ZStack{
+                                            Circle()
+                                                .frame(width: 25, height: 25)
+                                                .foregroundStyle(.colorCaliperometryMeasurementViewGreenBase)
+                                                
+                                            Text("i").font(.system(.title3, design: .rounded)).bold()
+                                                .foregroundStyle(.colorCaliperometryMeasurementViewGreenLight)
+                                            }
+                                        })//.offset(x: 50, y: -70)
+                                        .popover(isPresented: $isInstructionPresented) {
+                                            Image("body_fat_measuring_by_caliper_image")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(height: 200)
+                                            .presentationCompactAdaptation(.popover)
+                                            .shadow(radius: 5)
+                                        }
+                            }.offset(x: 50, y: -70)
+                        }
                     }
                     
                         Button(action: {
@@ -314,12 +339,12 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
             }
             
             HStack {
-                Text("\(isCurrentUserSubcutaneousFatLevelShown ? currentUserSubcutaneousFatLevel : "")")
+                Text("\(isCurrentUserSubcutaneousFatLevelPresented ? currentUserSubcutaneousFatLevel : "")")
                     .font(.system(.title2, design: .rounded))
                     .bold()
                     .foregroundColor(.colorCalculatedSubcutaneousFatResultText)
                 Spacer()
-                Text("\(isCurrentUserSubcutaneousFatLevelShown ? currentUserSubcutaneousFatPercent : "")")
+                Text("\(isCurrentUserSubcutaneousFatLevelPresented ? currentUserSubcutaneousFatPercent : "")")
                     .font(.system(.title2, design: .rounded))
                     .bold()
                     .foregroundColor(.colorCalculatedSubcutaneousFatResultText)

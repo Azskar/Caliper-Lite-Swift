@@ -9,6 +9,12 @@
     },
     "Above average" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extrem überflüssig"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25,6 +31,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Above average"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extremadamente redundante"
           }
         },
         "fr" : {
@@ -49,6 +61,12 @@
     },
     "Average" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überschuss"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -65,6 +83,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Average"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redudante"
           }
         },
         "fr" : {
@@ -89,6 +113,12 @@
     },
     "Body fat mass percentage" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prozentsatz der Körperfettmasse"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -105,6 +135,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Body fat mass percentage"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Porcentaje de masa grasa corporal"
           }
         },
         "fr" : {
@@ -129,6 +165,12 @@
     },
     "Body mass index" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Body-Mass-Index"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -145,6 +187,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Body mass index"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Índice de Masa Corporal"
           }
         },
         "fr" : {
@@ -169,6 +217,12 @@
     },
     "Close to average" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahe dem Überschuss"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -185,6 +239,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Close to average"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casi redudante"
           }
         },
         "fr" : {
@@ -209,6 +269,12 @@
     },
     "Close to ideal" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahezu ideal"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -225,6 +291,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Close to ideal"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casi ideal"
           }
         },
         "fr" : {
@@ -249,6 +321,12 @@
     },
     "Cm" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cm"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -262,6 +340,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cm"
+          }
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "cm"
@@ -289,6 +373,12 @@
     },
     "Current user's body fat mass percentage level" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktueller Prozentsatz der Körperfettmasse des Benutzers"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -305,6 +395,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Current user's body fat mass percentage level"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nivel actual del porcentaje de masa grasa corporal del usuario"
           }
         },
         "fr" : {
@@ -329,6 +425,12 @@
     },
     "Date of birth" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geburtsdatum"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -345,6 +447,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Date of birth"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fecha de nacimiento"
           }
         },
         "fr" : {
@@ -369,6 +477,12 @@
     },
     "Equals sign" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "="
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -382,6 +496,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "="
+          }
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "="
@@ -409,6 +529,12 @@
     },
     "Female" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frau"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -425,6 +551,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Female"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Femenino"
           }
         },
         "fr" : {
@@ -449,6 +581,12 @@
     },
     "Gender" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geschlecht"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -465,6 +603,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gender"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Género"
           }
         },
         "fr" : {
@@ -489,6 +633,12 @@
     },
     "Height:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Größe"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -505,6 +655,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Height:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altura"
           }
         },
         "fr" : {
@@ -527,8 +683,17 @@
         }
       }
     },
+    "i" : {
+      "shouldTranslate" : false
+    },
     "Ideal" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ideal"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -542,6 +707,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ideal"
+          }
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ideal"
@@ -569,6 +740,12 @@
     },
     "Kg" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "kg"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -582,6 +759,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "kg"
+          }
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "kg"
@@ -609,6 +792,12 @@
     },
     "Lean" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schlank"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -625,6 +814,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lean"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Magro"
           }
         },
         "fr" : {
@@ -649,6 +844,12 @@
     },
     "Low" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Niedriger"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -665,6 +866,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Low"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bajo"
           }
         },
         "fr" : {
@@ -689,6 +896,12 @@
     },
     "Male" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mann"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -705,6 +918,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Male"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masculino"
           }
         },
         "fr" : {
@@ -729,6 +948,12 @@
     },
     "Mass:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masse:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -745,6 +970,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mass:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masa:"
           }
         },
         "fr" : {
@@ -769,6 +1000,12 @@
     },
     "Measurements" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Messungen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -785,6 +1022,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Measurements"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Medidas"
           }
         },
         "fr" : {
@@ -809,6 +1052,12 @@
     },
     "Mm" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "mm"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -822,6 +1071,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "mm"
+          }
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "mm"
@@ -849,6 +1104,12 @@
     },
     "Normal" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Normal"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -862,6 +1123,12 @@
           }
         },
         "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Normal"
+          }
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Normal"
@@ -889,6 +1156,12 @@
     },
     "Profile" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzerprofil"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -905,6 +1178,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profile"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perfil"
           }
         },
         "fr" : {
@@ -929,6 +1208,12 @@
     },
     "Select skinfold thickness" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie die Dicke der Hautfalte"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -945,6 +1230,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Select skinfold thickness"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccione el grosor del pliegue de la piel"
           }
         },
         "fr" : {
@@ -969,6 +1260,12 @@
     },
     "Skinfold thickness" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hautfaltendicke"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -985,6 +1282,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Skinfold thickness"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grosor del pliegue de la piel"
           }
         },
         "fr" : {
@@ -1009,6 +1312,12 @@
     },
     "User gender" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geschlecht des Benutzers"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1025,6 +1334,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "User gender"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Género del usuario"
           }
         },
         "fr" : {
@@ -1049,6 +1364,18 @@
     },
     "User's BMI result level" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BMI-Ergebnisstufe des Benutzers"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User’s BMI result level"
+          }
+        },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1059,6 +1386,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "User's BMI result level"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nivel de resultados de IMC del usuario"
           }
         },
         "fr" : {
