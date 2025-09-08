@@ -51,6 +51,12 @@
             "value" : "Excès significatif"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "बेहद बेमानी"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -113,6 +119,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Excès"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "बेमानी"
           }
         },
         "it" : {
@@ -179,6 +191,12 @@
             "value" : "Pourcentage de graisse corporelle"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "शरीर में वसा द्रव्यमान प्रतिशत"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -241,6 +259,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Indice de masse corporelle"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "बॉडी मास इंडेक्स"
           }
         },
         "it" : {
@@ -307,6 +331,12 @@
             "value" : "Près de l'excès"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "निरर्थक के क़रीब"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -369,6 +399,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Près idéal"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आदर्श के करीब"
           }
         },
         "it" : {
@@ -435,6 +471,12 @@
             "value" : "cm"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सेमी"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -497,6 +539,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Niveau de pourcentage de masse de graisse corporelle de l'utilisateur actuel"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "वर्तमान उपयोगकर्ता के शरीर में वसा द्रव्यमान प्रतिशत स्तर"
           }
         },
         "it" : {
@@ -563,6 +611,12 @@
             "value" : "Date de naissance"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "जन्म तिथि"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -622,6 +676,12 @@
           }
         },
         "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "="
+          }
+        },
+        "hi" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "="
@@ -691,6 +751,12 @@
             "value" : "Femme"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "स्त्री"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -755,6 +821,12 @@
             "value" : "Genre"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "लिंग"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -817,6 +889,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Taille:"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ऊंचाई:"
           }
         },
         "it" : {
@@ -886,6 +964,12 @@
             "value" : "Idéal"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आदर्श"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -948,6 +1032,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "kg"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "किलो"
           }
         },
         "it" : {
@@ -1014,6 +1104,12 @@
             "value" : "Maigre"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "झुकना"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1076,6 +1172,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Faible"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कम"
           }
         },
         "it" : {
@@ -1142,6 +1244,12 @@
             "value" : "Homme"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नर"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1204,6 +1312,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masse:"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "द्रव्यमान:"
           }
         },
         "it" : {
@@ -1270,6 +1384,12 @@
             "value" : "Measures"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "माप"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1332,6 +1452,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "mm"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "मिमी"
           }
         },
         "it" : {
@@ -1398,6 +1524,12 @@
             "value" : "Normal"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रतिनिधिक"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1460,6 +1592,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profil"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रोफ़ाइल"
           }
         },
         "it" : {
@@ -1526,6 +1664,12 @@
             "value" : "Sélectionnez l'épaisseur du pli de la peau"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "स्किनफोल्ड मोटाई चुनें"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1588,6 +1732,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Épaisseur du pli de la peau"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "त्वचा की तह की मोटाई"
           }
         },
         "it" : {
@@ -1654,6 +1804,12 @@
             "value" : "Genre de l'utilisateur"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "उपयोगकर्ता का लिंग"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1716,6 +1872,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Niveau de résultat de IMC de utilisateur"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "उपयोगकर्ता का बीएमआई परिणाम स्तर"
           }
         },
         "it" : {
