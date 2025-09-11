@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct UserBmiCalculationView: View {
+    
+    @Environment(\.locale) private var locale
     
     @State private var userBmiResultLevel = String(localized: "User's BMI result level")
     var kilogramsText = String(localized: "Kg")
@@ -16,6 +19,9 @@ struct UserBmiCalculationView: View {
     @State private var currentUserMassValue: CGFloat = 20
     @State private var currentUserHeightValue: CGFloat = 120
     @State private var currentUserBmi: Float = 13.89
+    
+    @State private var currentUserMassValueArabic: CGFloat = 150
+    @State private var currentUserHeightValueArabic: CGFloat = 280
     
     @State private var calculationButtonTapped: Bool = false
     @State private var isCurrentUserBmiResultShown: Bool = false
@@ -32,7 +38,7 @@ struct UserBmiCalculationView: View {
     func calculateBmi() {
         calculationButtonTapped.toggle()
         
-        currentUserBmi = Float(currentUserMassValue)/Float(Float(currentUserHeightValue)/100 * Float(currentUserHeightValue)/100)
+        currentUserBmi = locale.language.languageCode?.identifier == "ar" ? Float(currentUserMassValueArabic)/Float(Float(currentUserHeightValueArabic)/100 * Float(currentUserHeightValueArabic)/100) : Float(currentUserMassValue)/Float(Float(currentUserHeightValue)/100 * Float(currentUserHeightValue)/100)
         
         switch currentUserBmi {
             case ..<18.5:
@@ -63,48 +69,49 @@ struct UserBmiCalculationView: View {
                         .font(.system(.title3, design: .rounded))
                         .bold()
                         .foregroundStyle(.white)
-                    Text(String(format: "%.0f", currentUserMassValue))
+                    /*Text(String(format: "%.0f", locale.language.languageCode?.identifier == "ar" ? currentUserMassValueArabic : currentUserMassValue))*/
+                    Text("\(locale.language.languageCode?.identifier == "ar" ? Int(currentUserMassValueArabic) : Int(currentUserMassValue))")
                         .font(.system(.title2, design: .rounded))
                         .bold()
                         .foregroundStyle(.white)
-                        .contentTransition(.numericText(value: currentUserMassValue))
-                        .animation(.snappy, value: currentUserMassValue)
+                        .contentTransition(.numericText(value: locale.language.languageCode?.identifier == "ar" ? currentUserMassValueArabic : currentUserMassValue))
+                        .animation(.snappy, value: locale.language.languageCode?.identifier == "ar" ? currentUserMassValueArabic : currentUserMassValue)
                     Text(kilogramsText)
                         .font(.system(.title2, design: .rounded))
                         .fontWeight(.semibold)
                         .textScale(.secondary)
                         .foregroundStyle(.white)
-                        .contentTransition(.numericText(value: currentUserMassValue))
-                        .animation(.snappy, value: currentUserMassValue)
+                        .contentTransition(.numericText(value: locale.language.languageCode?.identifier == "ar" ? currentUserMassValueArabic : currentUserMassValue))
+                        .animation(.snappy, value: locale.language.languageCode?.identifier == "ar" ? currentUserMassValueArabic : currentUserMassValue)
                     Spacer()
                 })
                 .padding(.top)
                 .padding(.horizontal)
                 .padding(.horizontal, 10)
                 
-                CurrentUserWeightHorizontalWheelPicker(config: currentUserWeightHorizontalWheelPickerConfig, value: $currentUserMassValue)
+                CurrentUserWeightHorizontalWheelPicker(config: currentUserWeightHorizontalWheelPickerConfig, value: locale.language.languageCode?.identifier == "ar" ? $currentUserMassValueArabic : $currentUserMassValue)
                     .padding(.horizontal, 25)
                     .frame(height: 55)
-                    .sensoryFeedback(.increase, trigger: currentUserMassValue)
+                    .sensoryFeedback(.increase, trigger: locale.language.languageCode?.identifier == "ar" ? currentUserMassValueArabic : currentUserMassValue)
                 
                 HStack(alignment: .bottom,  content: {
                     Text("Height:")
                         .font(.system(.title3, design: .rounded))
                         .bold()
                         .foregroundStyle(.white)
-                    Text(String(format: "%.0f", currentUserHeightValue))
+                    Text("\(locale.language.languageCode?.identifier == "ar" ? Int(currentUserHeightValueArabic) : Int(currentUserHeightValue))")
                         .font(.system(.title2, design: .rounded))
                         .bold()
                         .foregroundStyle(.white)
-                        .contentTransition(.numericText(value: currentUserHeightValue))
-                        .animation(.snappy, value: currentUserHeightValue)
+                        .contentTransition(.numericText(value: locale.language.languageCode?.identifier == "ar" ? currentUserHeightValueArabic : currentUserHeightValue))
+                        .animation(.snappy, value: locale.language.languageCode?.identifier == "ar" ? currentUserHeightValueArabic : currentUserHeightValue)
                     Text(centimetersText)
                         .font(.system(.title2, design: .rounded))
                         .fontWeight(.semibold)
                         .textScale(.secondary)
                         .foregroundStyle(.white)
-                        .contentTransition(.numericText(value: currentUserHeightValue))
-                        .animation(.snappy, value: currentUserHeightValue)
+                        .contentTransition(.numericText(value: locale.language.languageCode?.identifier == "ar" ? currentUserHeightValueArabic : currentUserHeightValue))
+                        .animation(.snappy, value: locale.language.languageCode?.identifier == "ar" ? currentUserHeightValueArabic : currentUserHeightValue)
                     Spacer()
                 })
                 .padding(.top)
@@ -112,7 +119,7 @@ struct UserBmiCalculationView: View {
                 .padding(.horizontal)
                 .padding(.horizontal, 10)
                 
-                CurrentUserHeightHorizontalWheelPicker(config: currentUserHeightHorizontalWheelPickerConfig, value: $currentUserHeightValue)
+                CurrentUserHeightHorizontalWheelPicker(config: currentUserHeightHorizontalWheelPickerConfig, value: locale.language.languageCode?.identifier == "ar" ? $currentUserHeightValueArabic : $currentUserHeightValue)
                     .padding(.horizontal, 25)
                     .frame(height: 55)
                     .sensoryFeedback(.increase, trigger: currentUserHeightValue)

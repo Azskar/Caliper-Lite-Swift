@@ -2,17 +2,157 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%@" : {
-      "shouldTranslate" : false
-    },
-    "%lld" : {
-      "shouldTranslate" : false
-    },
-    "Above average" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Extrem überflüssig"
+            "value" : "%@"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
+    "Above average" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فوق المتوسط"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überdurchschnittlich"
           }
         },
         "en" : {
@@ -36,53 +176,59 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Extremadamente redundante"
+            "value" : "Por encima de la media"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Excès significatif"
+            "value" : "Au-dessus de la moyenne"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Excès significatif"
+            "value" : "Au-dessus de la moyenne"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "बेहद बेमानी"
+            "value" : "औसत से ऊपर"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Eccesso significativo"
+            "value" : "Sopra la media"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Крайне избыточный"
+            "value" : "Выше среднего"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "极度冗余"
+            "value" : "高于平均水平"
           }
         }
       }
     },
     "Average" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "متوسط"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Überschuss"
+            "value" : "Durchschnitt"
           }
         },
         "en" : {
@@ -106,49 +252,55 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Redudante"
+            "value" : "Media"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Excès"
+            "value" : "Moyenne"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Excès"
+            "value" : "Moyenne"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "बेमानी"
+            "value" : "औसत"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Eccedenza"
+            "value" : "Media"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Избыточный"
+            "value" : "Средний"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "冗余"
+            "value" : "平均"
           }
         }
       }
     },
     "Body fat mass percentage" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نسبة كتلة الدهون في الجسم"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -219,6 +371,12 @@
     },
     "Body mass index" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مُؤَشِّر كُتْلةِ الجِسْمِ"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -289,6 +447,12 @@
     },
     "Close to average" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قريب من المتوسط"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -346,7 +510,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Близкий к избыточному"
+            "value" : "Близкий к среднему"
           }
         },
         "zh-Hans" : {
@@ -359,6 +523,12 @@
     },
     "Close to ideal" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قريب من المثالية"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -416,7 +586,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Близкий к спортивному"
+            "value" : "Близкий к идеальному"
           }
         },
         "zh-Hans" : {
@@ -429,6 +599,12 @@
     },
     "Cm" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سم"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -499,6 +675,12 @@
     },
     "Current user's body fat mass percentage level" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مستوى النسبة المئوية الحالي لكتلة الدهون في الجسم للمستخدم"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -565,10 +747,17 @@
             "value" : "当前用户的身体脂肪质量百分比水平"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Date of birth" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تاريخ الميلاد"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -639,6 +828,12 @@
     },
     "Equals sign" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "="
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -709,6 +904,12 @@
     },
     "Female" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أُنْثى"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -779,6 +980,12 @@
     },
     "Gender" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "جِنْس"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -849,6 +1056,12 @@
     },
     "Height:" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طول"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -922,6 +1135,12 @@
     },
     "Ideal" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مِثاليّ"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -992,6 +1211,12 @@
     },
     "Kg" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كجم"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1062,6 +1287,12 @@
     },
     "Lean" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نَحيل"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1132,6 +1363,12 @@
     },
     "Low" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المنخفض"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1202,6 +1439,12 @@
     },
     "Male" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ذَكَر"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1272,6 +1515,12 @@
     },
     "Mass:" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الكتلة:"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1342,6 +1591,12 @@
     },
     "Measurements" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "القياسات"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1412,6 +1667,12 @@
     },
     "Mm" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مم"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1482,6 +1743,12 @@
     },
     "Normal" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طَبيعيّ"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1552,6 +1819,12 @@
     },
     "Profile" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بُروفيل"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1622,6 +1895,12 @@
     },
     "Select skinfold thickness" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حدد سمك طية الجلد"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1692,6 +1971,12 @@
     },
     "Skinfold thickness" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سمك طية الجلد"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1828,10 +2113,17 @@
             "value" : "用户的性别"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "User's BMI result level" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مستوى نتيجة مؤشر كتلة الجسم للمستخدم"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",

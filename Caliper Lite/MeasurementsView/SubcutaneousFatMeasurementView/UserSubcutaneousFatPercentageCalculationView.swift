@@ -14,7 +14,8 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
     @State private var userGender: String = String(localized: "User gender")
     private var millimetersText = String(localized: "Mm")
     @State private var currentUserSubcutaneousFatLevel: String = String(localized: "Current user's body fat mass percentage level")
-    @State private var currentUserSubcutaneousFatPercent: String = ""
+    //@State private var currentUserSubcutaneousFatPercent: String = ""
+    @State private var currentUserSubcutaneousFatPercent: Double = 0.020
     @State private var currentUserAge: Int = 18
     @StateObject private var userProfile = UserProfile()
     /*init() {
@@ -24,7 +25,6 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
     @State private var currentUserSkinFoldThickness: Int = 2
     @State var currentUserAgeIndex: Int = 0
     @State var currentUserSkinFoldThicknessIndex: Int = 0
-    
     
     @State private var calculationButtonTapped: Bool = false
     @State private var isSheetPresented = false
@@ -37,54 +37,54 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
     var lowerSkinFoldThicknessLimits: [Int] = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26]
     var upperSkinFoldThicknessLimits: [Int] = [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27]
     
-    var caliperometryTable: [[[String]]] =
+    var caliperometryTable: [[[Any]]] =
         [
             [
-                ["2.0", "3.9", "6.2", "8.5", "10.5", "12.5", "14.3", "16.0", "17.5", "18.9", "20.2", "21.3", "22.3"],
-                ["2.5", "4.9", "7.3", "9.5", "11.6", "13.6", "15.4", "17.0", "18.6", "20.0", "21.2", "22.3", "23.3"],
-                ["3.5", "6.0", "8.4", "10.6", "12.7", "14.6", "16.4", "18.1", "19.6", "21.0", "22.3", "23.4", "24.4"],
-                ["4.5", "7.1", "9.4", "11.7", "13.7", "15.7", "17.5", "19.2", "20.7", "22.1", "23.4", "24.5", "25.5"],
-                ["5.6", "8.1", "10.5", "12.7", "14.8", "16.8", "18.6", "20.2", "21.8", "23.2", "24.4", "25.6", "26.5"],
-                ["6.7", "9.2", "11.5", "13.8", "15.9", "17.8", "19.6", "21.3", "22.8", "24.7", "25.5", "26.6", "27.6"],
-                ["7.7", "10.2", "12.6", "14.8", "16.9", "18.9", "20.7", "22.4", "23.9", "25.3", "26.6", "27.7", "28.7"],
-                ["8.8", "11.3", "13.7", "15.9", "18.0", "20.0", "21.8", "23.4", "25.0", "26.4", "27.6", "28.7", "29.7"],
-                ["9.9", "12.4", "14.7", "17.0", "19.1", "21.0", "22.8", "24.5", "26.0", "27.4", "28.7", "29.8", "30.8"]
+                [0.020, 0.039, 0.062, 0.085, 0.105, 0.125, 0.143, 0.160, 0.175, 0.189, 0.202, 0.213, 0.223],
+                [0.025, 0.049, 0.073, 0.095, 0.116, 0.136, 0.154, 0.170, 0.186, 0.200, 0.212, 0.223, 0.233],
+                [0.035, 0.060, 0.084, 0.106, 0.127, 0.146, 0.164, 0.181, 0.196, 0.210, 0.223, 0.234, 0.244],
+                [0.045, 0.071, 0.094, 11.7, 13.7, 15.7, 17.5, 19.2, 20.7, 22.1, 23.4, 24.5, 25.5],
+                [0.056, 0.081, 0.105, 0.127, 0.148, 0.168, 0.186, 0.202, 0.218, 0.232, 0.244, 0.256, 0.265],
+                [0.067, 0.092, 0.115, 0.138, 0.159, 0.178, 0.196, 0.213, 0.228, 0.247, 0.255, 0.266, 0.276],
+                [0.077, 0.102, 0.126, 0.148, 0.169, 0.189, 0.207, 0.224, 0.239, 0.253, 0.266, 0.277, 0.287],
+                [0.088, 0.113, 0.137, 0.159, 0.180, 0.200, 0.218, 0.234, 0.250, 0.264, 0.276, 0.287, 0.297],
+                [0.099, 0.124, 0.147, 0.170, 0.191, 0.210, 0.228, 0.245, 0.260, 0.274, 0.287, 0.298, 0.308]
             ],
                                
             [
-                ["11.3", "13.5", "15.7", "17.7", "19.7", "21.5", "23.2", "24.8", "26.3", "27.7", "29.0", "30.2", "31.3"],
-                ["11.9", "14.2", "16.3", "18.4", "20.3", "22.1", "23.8", "25.5", "27.0", "28.4", "29.6", "30.8", "31.9"],
-                ["12.5", "14.8", "16.9", "19.0", "20.9", "22.7", "24.5", "26.1", "27.6", "29.0", "30.3", "31.5", "32.5"],
-                ["13.2", "15.4", "17.6", "19.6", "21.5", "23.4", "25.1", "26.7", "28.2", "29.6", "30.9", "32.1", "33.2"],
-                ["13.8", "16.0", "18.2", "20.2", "22.2", "24.0", "24.7", "27.3", "28.8", "30.2", "31.5", "32.7", "33.8"],
-                ["14.4", "16.7", "18.8", "20.8", "22.8", "24.6", "26.3", "27.9", "29.4", "30.8", "32.1", "33.3", "34.4"],
-                ["15.0", "17.3", "19.4", "21.5", "23.4", "25.2", "26.9", "28.6", "30.1", "32.5", "32.8", "34.0", "35.0"],
-                ["15.6", "17.9", "20.0", "22.1", "24.0", "25.9", "27.6", "29.2", "30.7", "32.1", "33.4", "34.6", "35.6"],
-                ["16.3", "18.5", "20.7", "22.7", "24.6", "26.5", "28.2", "29.8", "31.3", "32.7", "34.0", "35.2", "36.3"]
+                [0.113, 0.135, 0.157, 0.177, 0.197, 0.215, 0.232, 0.248, 0.263, 0.277, 0.290, 0.302, 0.313],
+                [0.119, 0.142, 0.163, 0.184, 0.203, 0.221, 0.238, 0.255, 0.270, 0.284, 0.296, 0.308, 0.319],
+                [0.125, 0.148, 0.169, 0.190, 0.209, 0.227, 0.245, 0.261, 0.276, 0.290, 0.303, 0.315, 0.325],
+                [0.132, 0.154, 0.176, 0.196, 0.215, 0.234, 0.251, 0.267, 0.282, 0.296, 0.309, 0.321, 0.332],
+                [0.138, 0.160, 0.182, 0.202, 0.222, 0.240, 0.247, 0.273, 0.288, 0.302, 0.315, 0.327, 0.338],
+                [0.144, 0.167, 0.188, 0.208, 0.228, 0.246, 0.263, 0.279, 0.294, 0.308, 0.321, 0.333, 0.344],
+                [0.150, 0.173, 0.194, 0.215, 0.234, 0.252, 0.269, 0.286, 0.301, 0.325, 0.328, 0.340, 0.350],
+                [0.156, 0.179, 0.200, 0.221, 0.240, 0.259, 0.276, 0.292, 0.307, 0.321, 0.334, 0.346, 0.356],
+                [0.163, 0.185, 0.207, 0.227, 0.246, 0.265, 0.282, 0.298, 0.313, 0.327, 0.340, 0.352, 0.363]
             ],
                                
             [
-                ["1", "1", "2", "3", "3", "3", "4", "5", "5", "5", "6", "7", "7"],
-                ["1", "1", "2", "3", "3", "3", "4", "5", "5", "5", "6", "7", "7"],
-                ["1", "1", "1", "3", "3", "3", "4", "5", "5", "5", "6", "7", "7"],
-                ["1", "1", "1", "2", "3", "3", "3", "5", "5", "5", "5", "7", "7"],
-                ["1", "1", "1", "2", "3", "3", "3", "4", "5", "5", "5", "6", "7"],
-                ["1", "1", "1", "2", "3", "3", "3", "4", "5", "5", "5", "6", "7"],
-                ["1", "1", "1", "2", "3", "3", "3", "4", "5", "5", "5", "6", "7"],
-                ["1", "1", "1", "1", "3", "3", "3", "4", "5", "5", "5", "5", "7"],
-                ["1", "1", "1", "1", "2", "3", "3", "3", "4", "5", "5", "5", "7"]
+                [1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 6, 7, 7],
+                [1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 6, 7, 7],
+                [1, 1, 1, 3, 3, 3, 4, 5, 5, 5, 6, 7, 7],
+                [1, 1, 1, 2, 3, 3, 3, 5, 5, 5, 5, 7, 7],
+                [1, 1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 6, 7],
+                [1, 1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 6, 7],
+                [1, 1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 6, 7],
+                [1, 1, 1, 1, 3, 3, 3, 4, 5, 5, 5, 5, 7],
+                [1, 1, 1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 7]
             ],
                                
             [
-                ["1", "1", "1", "2", "3", "3", "4", "5", "5", "5", "5", "6", "7"],
-                ["1", "1", "1", "2", "3", "3", "4", "5", "5", "5", "5", "6", "7"],
-                ["1", "1", "1", "2", "3", "3", "4", "5", "5", "5", "5", "6", "7"],
-                ["1", "1", "1", "1", "3", "3", "3", "5", "5", "5", "5", "6", "7"],
-                ["1", "1", "1", "1", "2", "3", "3", "4", "5", "5", "5", "5", "7"],
-                ["1", "1", "1", "1", "2", "3", "3", "4", "5", "5", "5", "5", "6"],
-                ["1", "1", "1", "1", "2", "3", "3", "4", "5", "5", "5", "5", "6"],
-                ["1", "1", "1", "1", "1", "3", "3", "3", "5", "5", "5", "5", "6"],
-                ["1", "1", "1", "1", "1", "2", "3", "3", "4", "5", "5", "5", "5"]
+                [1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 5, 6, 7],
+                [1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 5, 6, 7],
+                [1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 5, 6, 7],
+                [1, 1, 1, 1, 3, 3, 3, 5, 5, 5, 5, 6, 7],
+                [1, 1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 5, 7],
+                [1, 1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 5, 6],
+                [1, 1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 5, 6],
+                [1, 1, 1, 1, 1, 3, 3, 3, 5, 5, 5, 5, 6],
+                [1, 1, 1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 5]
             ]
         ]
     
@@ -122,10 +122,10 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
         default:
             userGenderIndex = 0
         }
-            
+        
         currentUserAgeIndex = 0
         currentUserSkinFoldThicknessIndex = 0
-            
+        
         thinBodyImage = ImageResource(name: "body_thin_inactive", bundle: .main)
         thinIdealBodyImage = ImageResource(name: "body_thin-ideal_inactive", bundle: .main)
         idealBodyImage = ImageResource(name: "body_ideal_inactive", bundle: .main)
@@ -133,7 +133,7 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
         middleBodyImage = ImageResource(name: "body_middle_inactive", bundle: .main)
         overfatBodyImage = ImageResource(name: "body_overfat_inactive", bundle: .main)
         obeseBodyImage = ImageResource(name: "body_obese_inactive", bundle: .main)
-            
+        
         while true {
             if Int(currentUserAge) < lowerAgeLimits[currentUserAgeIndex] {
                 // Возраст меньше нижней границы - прерываем цикл
@@ -150,54 +150,58 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
                 break
             }
         }
-                
+        
         while !(Int(currentUserSkinFoldThickness) >= lowerSkinFoldThicknessLimits[currentUserSkinFoldThicknessIndex] && Int(currentUserSkinFoldThickness) <= upperSkinFoldThicknessLimits[currentUserSkinFoldThicknessIndex]) {
             currentUserSkinFoldThicknessIndex += 1
         }
-                
-            // Проверка границ перед доступом к массиву
+        
+        // Проверка границ перед доступом к массиву
         guard userGenderIndex + 2 < caliperometryTable.count,
-            currentUserAgeIndex < caliperometryTable[userGenderIndex + 2].count,
-            currentUserSkinFoldThicknessIndex < caliperometryTable[userGenderIndex + 2][currentUserAgeIndex].count
+              currentUserAgeIndex < caliperometryTable[userGenderIndex + 2].count,
+              currentUserSkinFoldThicknessIndex < caliperometryTable[userGenderIndex + 2][currentUserAgeIndex].count
         else {
             /*currentUserSubcutaneousFatLevel = "Ошибка: выход за пределы массива"*/
             return
         }
         
-        switch caliperometryTable[userGenderIndex + 2][currentUserAgeIndex][currentUserSkinFoldThicknessIndex] {
-        case "1":
-            currentUserSubcutaneousFatLevel = String(localized: "Lean")
-            thinBodyImage = ImageResource(name: "body_thin_active", bundle: .main)
-        case "2":
-            currentUserSubcutaneousFatLevel = String(localized: "Close to ideal")
-            thinIdealBodyImage = ImageResource(name: "body_thin-ideal_active", bundle: .main)
-        case "3":
-            currentUserSubcutaneousFatLevel = String(localized: "Ideal")
-            idealBodyImage = ImageResource(name: "body_ideal_active", bundle: .main)
-        case "4":
-            currentUserSubcutaneousFatLevel = String(localized: "Close to ideal")
-            idealMiddleBodyImage = ImageResource(name: "body_ideal-middle_active", bundle: .main)
-        case "5":
-            currentUserSubcutaneousFatLevel = String(localized: "Close to average")
-            middleBodyImage = ImageResource(name: "body_middle_active", bundle: .main)
-        case "6":
-            currentUserSubcutaneousFatLevel = String(localized: "Average")
-            overfatBodyImage = ImageResource(name: "body_overfat_active", bundle: .main)
-        case "7":
-            currentUserSubcutaneousFatLevel = String(localized: "Above average")
-            obeseBodyImage = ImageResource(name: "body_obese_active", bundle: .main)
-        default:
-            print("Значение не распознано")
+        if let value = caliperometryTable[userGenderIndex + 2][currentUserAgeIndex][currentUserSkinFoldThicknessIndex] as? Int {
+            switch value {
+            case 1:
+                currentUserSubcutaneousFatLevel = String(localized: "Lean")
+                thinBodyImage = ImageResource(name: "body_thin_active", bundle: .main)
+            case 2:
+                currentUserSubcutaneousFatLevel = String(localized: "Close to ideal")
+                thinIdealBodyImage = ImageResource(name: "body_thin-ideal_active", bundle: .main)
+            case 3:
+                currentUserSubcutaneousFatLevel = String(localized: "Ideal")
+                idealBodyImage = ImageResource(name: "body_ideal_active", bundle: .main)
+            case 4:
+                currentUserSubcutaneousFatLevel = String(localized: "Close to ideal")
+                idealMiddleBodyImage = ImageResource(name: "body_ideal-middle_active", bundle: .main)
+            case 5:
+                currentUserSubcutaneousFatLevel = String(localized: "Close to average")
+                middleBodyImage = ImageResource(name: "body_middle_active", bundle: .main)
+            case 6:
+                currentUserSubcutaneousFatLevel = String(localized: "Average")
+                overfatBodyImage = ImageResource(name: "body_overfat_active", bundle: .main)
+            case 7:
+                currentUserSubcutaneousFatLevel = String(localized: "Above average")
+                obeseBodyImage = ImageResource(name: "body_obese_active", bundle: .main)
+            default:
+                print("Значение не распознано")
+            }
+        } else {
+            print("Элемент не является строкой")
         }
-            
-        currentUserSubcutaneousFatPercent = "\(caliperometryTable[userGenderIndex][currentUserAgeIndex][currentUserSkinFoldThicknessIndex]) %"
+        
+        currentUserSubcutaneousFatPercent = (caliperometryTable[userGenderIndex][currentUserAgeIndex][currentUserSkinFoldThicknessIndex]) as! Double
         
         isCurrentUserSubcutaneousFatLevelPresented = true
     }
     
     //#if os(iOS)
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             VStack {
                 Text("Body fat mass percentage")
                     .font(.system(.title, design: .rounded))
@@ -233,7 +237,7 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
                                             Text("i").font(.system(.title3, design: .rounded)).bold()
                                                 .foregroundStyle(.colorCaliperometryMeasurementViewGreenLight)
                                             }
-                                        })//.offset(x: 50, y: -70)
+                                        })
                                         .popover(isPresented: $isInstructionPresented) {
                                             Image("body_fat_measuring_by_caliper_image")
                                                 .resizable()
@@ -249,7 +253,8 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
                         Button(action: {
                                 isSheetPresented.toggle()
                         }, label: {
-                            VStack(spacing: -3) {
+                            //VStack(spacing: -1) {
+                            VStack(spacing: locale.language.languageCode?.identifier == "ar" ? 1 : -3) {
                                 HStack(alignment: .bottom) {
                                         Text("\(self.currentUserSkinFoldThickness)")
                                             .padding(.top, 60)
@@ -263,7 +268,7 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
                                             .textScale(.secondary)
                                             .foregroundStyle(.white)
                                         }
-                                Capsule().frame(width: currentUserSkinFoldThickness >= 20 ? (locale.language.languageCode?.identifier == "ru" ? 65: 70) : (currentUserSkinFoldThickness >= 10 ? (locale.language.languageCode?.identifier == "ru" ? 60: 65) : (locale.language.languageCode?.identifier == "ru" ? 50: 55)), height: 2).foregroundStyle(.white)
+                                Capsule().frame(width: currentUserSkinFoldThickness >= 20 ? ((locale.language.languageCode?.identifier == "ru" || locale.language.languageCode?.identifier == "ar") ? 65: 70) : (currentUserSkinFoldThickness >= 10 ? ((locale.language.languageCode?.identifier == "ru" || locale.language.languageCode?.identifier == "ar") ? 60: 65) : ((locale.language.languageCode?.identifier == "ru" || locale.language.languageCode?.identifier == "ar") ? 50: 55)), height: 2).foregroundStyle(.white)
                                 }
                             })
                             .popover(isPresented: $isSheetPresented) {
@@ -344,7 +349,7 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
                     .bold()
                     .foregroundColor(.colorCalculatedSubcutaneousFatResultText)
                 Spacer()
-                Text("\(isCurrentUserSubcutaneousFatLevelPresented ? currentUserSubcutaneousFatPercent : "")")
+                Text("\(isCurrentUserSubcutaneousFatLevelPresented ? currentUserSubcutaneousFatPercent.formatted(.percent.precision(.fractionLength(1))) : "")")
                     .font(.system(.title2, design: .rounded))
                     .bold()
                     .foregroundColor(.colorCalculatedSubcutaneousFatResultText)
@@ -367,6 +372,7 @@ struct UserSubcutaneousFatPercentageCalculationView: View {
         .background(subcutaneousFatPercentageMeasurementViewGradient)
         .cornerRadius(30)
     }//body
+
 }//View
 
 #Preview {
