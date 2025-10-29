@@ -19,6 +19,8 @@ struct ContentView: View {
             .standardAppearance = transparentAppearence
     }
     
+    @Environment(\.colorScheme) private var colorScheme
+    
     var body: some View {
         TabView {
             MeasurementsView()
@@ -29,7 +31,14 @@ struct ContentView: View {
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
-        }
+            /*Tab("Measurements", systemImage: "list.bullet.clipboard.fill") {
+                MeasurementsView()
+            }
+            
+            Tab("Profile", systemImage: "person") {
+                UserProfileView()
+            }*/
+        }.tint(colorScheme == .dark ? .white : .accentColor)
     }
 }
 
